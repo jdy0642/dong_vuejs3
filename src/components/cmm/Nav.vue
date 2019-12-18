@@ -13,7 +13,9 @@
 			<li><router-link to="/footer"> 푸터 </router-link></li>
 			<li><router-link to="/seqsum"> 입력된 두 수 의 합 </router-link></li>
 			<li><router-link to="/account"> 계좌 </router-link></li>
-			<li><router-link to="/todo"> 해야할 일  </router-link></li>
+			<li><router-link to="/todo2"> 해야할 일  </router-link></li>
+			<li><router-link to="/parent"> 슬롯 테스트   </router-link></li>
+			<li><router-link to="/navbar"> 네비바  </router-link></li>
 			</ul>
 		</div>
 	</nav>

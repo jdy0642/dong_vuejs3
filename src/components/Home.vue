@@ -4,8 +4,8 @@
 	</div>
 </template>	
 <script>
-import Nav from '@/components/Nav.vue'
-export default{
+import Nav from '@/components/cmm/Nav.vue'
+export default {
 	name: 'home',
 	components : {
 		Nav

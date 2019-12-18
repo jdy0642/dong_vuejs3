@@ -4,22 +4,22 @@
 <div id="header" class="header">
     <h2>Todo List App</h2>
 	<input class="input" type="text" v-model="task" placeholder="입력 후 엔터!">
-	<span class="addbutton" @click="addTodo">추 가</span>
+	<span class="addbutton" @click="addTodo(i)">추 가</span>
 </div>
     <ul id="todolist">
-	<li @click="doneToggle(v.id)" v-for = "(v, i) of todos" :key ="v.id" :class="v.cl" >
+	<li @click="doneToggle(todo)" v-for ="(todo, i) of todos" :key ="todo.id" :class="todo.cl" >
 		<span> {{i+1}}. </span>  
-		<span> {{v.todo}} </span>  
-		<span v-if="v.done"> (완료) </span>
-		<span class="close" @click="deleteTodo"> &#x00D7; </span>
+		<span> {{todo.todo}} </span>  
+		<span v-if="todo.cl"> (완료) </span>
+		<span class="close" @click ="deleteTodo(i)"> &#x00D7; </span>
 	</li>
     </ul>
 </div>
 </template>
 <script>
-import Nav from '@/components/Nav.vue'
+import Nav from '@/components/cmm/Nav.vue'
 export default {
-	name:'todo',
+	name:'todo2',
 	components:{
 		Nav
 	},
@@ -34,18 +34,17 @@ export default {
 		}
 	},
 	methods:{
-		addTodo(){
+		addTodo(index){
 			this.seq++
-			this.todos.push({name:this.seq, todo:this.task, cl:''})
-			alert(this.seq)
+			this.todos.push({name:index, todo:this.task, cl:''})
+            alert(this.seq)
+            alert(index)
 		},
-		doneToggle(index){
-			const target = this.todos[index-1]
-			target.done = !target.done
-			target.cl = (target.done)? 'checked':''
+		doneToggle(json){
+            (json.cl=='') ? json.cl= 'checked' : json.cl = ''
 		},
-		deleteTodo(){
-
+		deleteTodo(index){
+            this.todos.splice(index ,1)
 		}
 	}
 }
